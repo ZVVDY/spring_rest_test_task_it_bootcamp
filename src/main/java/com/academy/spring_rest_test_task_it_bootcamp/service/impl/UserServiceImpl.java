@@ -22,33 +22,34 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
 
     @Override
-    public void save(UserDto user) {
-        UserDto userToSave = new UserDto();
-        userToSave.setFirstName(user.getFirstName());
-        userToSave.setSurname(user.getSurname());
-        userToSave.setMiddleName(user.getMiddleName());
-        userToSave.setEmail(user.getEmail());
-        userToSave.setRoles(user.getRoles());
-        User result = userMapper.toEntity(userToSave);
-        userRepository.save(result);
+    public void save(UserDto userDto) {
+//        UserDto userToSave = new UserDto();
+//        userToSave.setFirstName(user.getFirstName());
+//        userToSave.setSurname(user.getSurname());
+//        userToSave.setMiddleName(user.getMiddleName());
+//        userToSave.setEmail(user.getEmail());
+//        userToSave.setRoles(user.getRoles());
+//        User result = userMapper.toEntity(userToSave);
+      //  userRepository.save(result);
     }
 
     @Override
-    public void update(UserDto user) {
-        UserDto userToUpdate = new UserDto();
-        userToUpdate.setId(user.getId());
-        userToUpdate.setFirstName(user.getFirstName());
-        userToUpdate.setSurname(user.getSurname());
-        userToUpdate.setMiddleName(user.getMiddleName());
-        userToUpdate.setEmail(user.getEmail());
-        userToUpdate.setRoles(user.getRoles());
-        User result = userMapper.toEntity(userToUpdate);
-        userRepository.save(result);
+    public void update(UserDto userDto) {
+//        UserDto userToUpdate = new UserDto();
+//        userToUpdate.setId(user.getId());
+//        userToUpdate.setFirstName(user.getFirstName());
+//        userToUpdate.setSurname(user.getSurname());
+//        userToUpdate.setMiddleName(user.getMiddleName());
+//        userToUpdate.setEmail(user.getEmail());
+//        userToUpdate.setRoles(user.getRoles());
+//        User result = userMapper.toEntity(userToUpdate);
+        //userRepository.save(result);
     }
 
     @Override
-    public List<UserDto> findByEmailAll() {
-        List<UserDto> result = userMapper.ToDto(userRepository.findAll());
+    public List<UserDto> findAll() {
+        List<User> users = userRepository.findAll();
+        List<UserDto> result = userMapper.modelsToDto(users);
         return result;
     }
 

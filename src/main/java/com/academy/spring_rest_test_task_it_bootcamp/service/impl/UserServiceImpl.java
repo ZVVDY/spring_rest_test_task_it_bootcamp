@@ -10,6 +10,7 @@ import com.academy.spring_rest_test_task_it_bootcamp.service.UserService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +18,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
+@Log4j2
 @Service
 @Setter
 @Getter
@@ -31,6 +32,7 @@ public class UserServiceImpl implements UserService {
     public void save(UserDto userDto) {
         User userToSave = userMapper.toEntity(userDto);
         userRepository.save(userToSave);
+        log.info("");
     }
 
     @Override

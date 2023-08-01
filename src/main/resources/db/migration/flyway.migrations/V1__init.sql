@@ -1,10 +1,10 @@
 CREATE TABLE user
 (
-    id                      bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    surname                varchar(40) DEFAULT NULL,
-    first_name                varchar(20) DEFAULT NULL,
-    middle_name                varchar(40) DEFAULT NULL,
-    email                varchar(50) DEFAULT NULL
+    id          bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    surname     varchar(40) DEFAULT NULL,
+    first_name  varchar(20) DEFAULT NULL,
+    middle_name varchar(40) DEFAULT NULL,
+    email       varchar(50) DEFAULT NULL
 );
 
 CREATE TABLE user_roles

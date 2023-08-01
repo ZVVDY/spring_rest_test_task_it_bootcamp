@@ -1,20 +1,19 @@
 package com.academy.spring_rest_test_task_it_bootcamp.service;
 
 
+import com.academy.spring_rest_test_task_it_bootcamp.dto.UserAllInformationDto;
 import com.academy.spring_rest_test_task_it_bootcamp.dto.UserDto;
-import com.academy.spring_rest_test_task_it_bootcamp.model.entity.User;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
 
 public interface UserService {
 
     void save(UserDto userDto);
-    void update(UserDto userDto);
 
-List<UserDto> findAll();
+    void update(Integer id, UserDto userDto);
+
+    Page<UserAllInformationDto> findAll(Integer page);
 
     void deleteUser(Long id);
 
-    boolean saveUser(User user);
-
+    UserDto findById(Long id);
 }

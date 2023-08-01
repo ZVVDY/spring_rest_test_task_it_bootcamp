@@ -39,7 +39,7 @@ public class UserController {
     @PostMapping(consumes = "application/json")
     public ResponseEntity createUser(@Valid @RequestBody UserDto userDto) {
         userService.save(userDto);
-        log.info("User with id=" + userDto.getId() + " was updated.");
+        log.info("The user with this " + userDto.toString() + " was created.");
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
@@ -58,7 +58,7 @@ public class UserController {
     public ResponseEntity<UserDto> updateUser(@PathVariable Integer id, @Valid @RequestBody UserDto userDto) {
         try {
             userService.update(id, userDto);
-            // log.info("User with id=" + id + " was updated.");
+            log.info("The user with this id=" + id + " has been updated.");
             return new ResponseEntity<>(userDto, HttpStatus.OK);
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -70,7 +70,7 @@ public class UserController {
     public ResponseEntity<HttpStatus> createUser(@PathVariable Long id) {
         try {
             userService.deleteUser(id);
-            // log.info("User with id=" + id + " was deleted.");
+            log.info("The user with this id=" + id + " has been deleted.");
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch (EntityNotFoundException e) {
             log.error(e.getMessage());
